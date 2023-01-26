@@ -5,6 +5,7 @@ public struct SliderBarSwitchView: View {
     let circleRadius: CGFloat
     let staticCaption: String
     let circleColor: Color
+    let textFont: Font
     let textColor: Color
     let backGroundColor: Color
     let complete: ()->()
@@ -13,11 +14,12 @@ public struct SliderBarSwitchView: View {
     @State private var dragOffset = CGSize.zero
     @State private var completed = false
 
-    public init(width: Double, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textColor: Color = Color.white, backGroundColor: Color = Color.green, caption: String, complete: @escaping(()->())) {
+    public init(width: Double, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textFont: Font = .title, textColor: Color = Color.white, backGroundColor: Color = Color.green, caption: String, complete: @escaping(()->())) {
         self.width = width
         self.circleRadius = circleRadius
         self.staticCaption = caption
         self.circleColor = circleColor
+        self.textFont = textFont
         self.textColor = textColor
         self.backGroundColor = backGroundColor
         self.complete = complete
@@ -27,11 +29,12 @@ public struct SliderBarSwitchView: View {
             }
     }
 
-    public init(width: Double, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textColor: Color = Color.white, backGroundColor: Color = Color.green, caption: Binding<String>, complete: @escaping(()->())) {
+    public init(width: Double, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textFont: Font = .title, textColor: Color = Color.white, backGroundColor: Color = Color.green, caption: Binding<String>, complete: @escaping(()->())) {
         self.width = width
         self.circleRadius = circleRadius
         self.staticCaption = ""
         self.circleColor = circleColor
+        self.textFont = textFont
         self.textColor = textColor
         self.backGroundColor = backGroundColor
         self.complete = complete
@@ -47,7 +50,7 @@ public struct SliderBarSwitchView: View {
             
             if self.dragOffset.width == 0 {
                 Text((self.dynamicCaption == "") ? self.staticCaption : dynamicCaption)
-                    .font(.title)
+                    .font(self.textFont)
                     .foregroundColor(self.textColor)
                     .offset(CGSize(width: (circleRadius * 2) + 8, height: 0))
             }
