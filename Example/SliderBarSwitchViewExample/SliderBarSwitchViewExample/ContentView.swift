@@ -1,22 +1,13 @@
-# SliderBarSwitchView - iOS(SwiftUI) 向け スライドバー型スイッチ
-===============
-[![Swift Package Manager compatible](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager)
+//
+//  ContentView.swift
+//  SliderBarSwitchViewExample
+//
+//  Created by YASUSHI NOZAKI on R 5/01/26.
+//
 
-SliderBarSwitchView は **iOS**, **iPadOS** 向けに、スライド型のインタラクションインタフェースを提供します。 
-以下を使用可能です。
-
-* [`SliderBarSwitchView`](Sources/SliderBarSwitchView.swift)
-
-Installation
-------------
-
-* use SPM: add `https://github.com/unvsacrs/SliderBarSwitchView` and set "Up to Next Major" with "12.0.0"
-
-Usage
------
-
-```swift
+import SwiftUI
 import SliderBarSwitchView
+import AVFoundation
 
 struct ContentView: View {
     @State private var counter = 0
@@ -60,4 +51,8 @@ struct ContentView: View {
     }
 }
 
-```
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
