@@ -2,8 +2,8 @@ import SwiftUI
 
 public struct SliderBarSwitchView: View {
     let width: Double
-    let circleRadius: CGFloat
     let staticCaption: String
+    let circleRadius: CGFloat
     let circleColor: Color
     let textFont: Font
     let textColor: Color
@@ -14,10 +14,10 @@ public struct SliderBarSwitchView: View {
     @State private var dragOffset = CGSize.zero
     @State private var completed = false
 
-    public init(width: Double, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textFont: Font = .title, textColor: Color = Color.white, backGroundColor: Color = Color.green, caption: String, complete: @escaping(()->())) {
+    public init(width: Double, caption: String, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textFont: Font = .title, textColor: Color = Color.white, backGroundColor: Color = Color.green, complete: @escaping(()->())) {
         self.width = width
-        self.circleRadius = circleRadius
         self.staticCaption = caption
+        self.circleRadius = circleRadius
         self.circleColor = circleColor
         self.textFont = textFont
         self.textColor = textColor
@@ -29,10 +29,10 @@ public struct SliderBarSwitchView: View {
             }
     }
 
-    public init(width: Double, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textFont: Font = .title, textColor: Color = Color.white, backGroundColor: Color = Color.green, caption: Binding<String>, complete: @escaping(()->())) {
+    public init(width: Double, caption: Binding<String>, circleRadius: CGFloat = 36, circleColor: Color = Color.white, textFont: Font = .title, textColor: Color = Color.white, backGroundColor: Color = Color.green, complete: @escaping(()->())) {
         self.width = width
-        self.circleRadius = circleRadius
         self.staticCaption = ""
+        self.circleRadius = circleRadius
         self.circleColor = circleColor
         self.textFont = textFont
         self.textColor = textColor
